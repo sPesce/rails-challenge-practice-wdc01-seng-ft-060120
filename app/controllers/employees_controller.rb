@@ -5,4 +5,10 @@ class EmployeesController < ApplicationController
       company_id: params[:company_id])
     redirect_to company_path(new_employee.company)
   end
+  def destroy
+    employee = Employee.find(params[:id])
+    company = employee.company
+    employee.destroy
+    redirect_to company_path(company)
+  end
 end

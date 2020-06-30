@@ -1,18 +1,20 @@
 <h1>Company's Detail Page</h1>
-
 <ul>
 <% @company.offices.each do |office| %>
 
        <li> <%= office.building.name + " - Floor: " + office.floor.to_s%></li>
         <% end %>
 </ul>
+<h4>Total Rent Expense: $<%= @company.rent_expense.to_s + ".00" %></h4>
 
-<h1> Names of Employees: </h1>
+<h2> Names of Employees: </h2>
 
 <ul>
-    <% @company.employees.pluck(:name).each do |name| %>
-       <li> <%= name %> </li><br>
-        <%end%>
+    <% @company.employees.each do |employee| %>
+       <li><%= employee.name + "  " %>
+        <%= button_to "Delete Employee", company_employee_path(employee), :method => :delete %>
+       </li><br>
+    <%end%>
 </ul>
 <h2>Add new Employee</h2>
 <%= form_for @employee, url: company_employees_path(@company) do |f| %>   
