@@ -16,8 +16,15 @@ class CompaniesController < ApplicationController
     
     
     def create
-        @company = Company.create(company_params)
+
+        @company = Company.new(company_params)
+        if @company.save
+       # byebug
+        params[:company][:offices_attributes].each 
         redirect_to company_path(@company)
+        else
+            render :new
+        end
     end
 
     def new_employee
@@ -34,7 +41,7 @@ class CompaniesController < ApplicationController
     end
 
     def company_params
-        params.require(:company).permit(:name)
+        params.require(:company).permit(:name, :building_ids => [], :office_floors => [] )
     end
     
     
