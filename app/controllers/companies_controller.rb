@@ -7,6 +7,7 @@ class CompaniesController < ApplicationController
     
     def show
         find_company
+        @employee = Employee.new        
     end
     
     def new

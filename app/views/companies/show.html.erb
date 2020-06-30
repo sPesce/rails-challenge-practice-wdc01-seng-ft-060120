@@ -14,4 +14,10 @@
        <li> <%= name %> </li><br>
         <%end%>
 </ul>
+<h2>Add new Employee</h2>
+<%= form_for @employee, url: company_employees_path(@company) do |f| %>   
+  <%= f.label :name, "Name"%>
+  <%= f.text_field :name%>
+  <%= f.submit %>
+<% end %>
 
