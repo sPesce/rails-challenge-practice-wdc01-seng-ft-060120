@@ -1,0 +1,14 @@
+On this page, a user should be able to see how much total rent that building is making based on 
+all the companies that have rented offices in that building
+
+<h2>Building Details</h2>
+<h4>Total Rent: </h4>
+<%= @building.rent_per_floor * @building.companies.count %>  
+<h4>Companies: </h4>
+<ul>
+  <% @building.companies.each do |company| %>
+    <li>  
+      <%= link_to company.name, company_path(company) %>
+    </li> 
+  <% end %>      
+</ul>

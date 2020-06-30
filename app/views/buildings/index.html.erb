@@ -1,0 +1,23 @@
+<h2>All Buildings Page</h2>
+<ul>
+  <% @buildings.each do |building| %>    
+      <li>
+        <%= "Name: #{building.name}" %>
+      </li>
+    <li>
+      <%= "Country: #{building.country}" %>
+    </li>
+    <li>
+      <h3>Floors Available: </h3>
+      <ul>   
+          <% building.number_of_floors_available.each do |num| %>
+            <li>
+              <%= num %>
+            </li>
+          <% end %>       
+      </ul><hr>
+    </li>
+  <% end %>
+
+  
+</ul>  
