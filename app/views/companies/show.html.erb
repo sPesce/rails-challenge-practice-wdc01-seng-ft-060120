@@ -1,0 +1,17 @@
+<h1>Company's Detail Page</h1>
+
+<ul>
+<% @company.offices.each do |office| %>
+
+       <li> <%= office.building.name + " - Floor: " + office.floor.to_s%></li>
+        <% end %>
+</ul>
+
+<h1> Names of Employees: </h1>
+
+<ul>
+    <% @company.employees.pluck(:name).each do |name| %>
+       <li> <%= name %> </li><br>
+        <%end%>
+</ul>
+
